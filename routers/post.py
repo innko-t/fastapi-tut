@@ -33,7 +33,7 @@ def posts(db: Session= Depends(get_db)):
 def upload_image(image: UploadFile = File(...), current_user:UserAuth= Depends(get_current_user)):
     letter = string.ascii_letters
     rand_str = ''.join(random.choice(letter) for i in range(8))
-    new = f'_{rand_str}'
+    new = f'_{rand_str}.'
     filename = new.join(image.filename.rsplit('.', 1))
     path = f'images/{filename}'
 
